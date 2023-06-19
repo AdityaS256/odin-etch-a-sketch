@@ -1,0 +1,30 @@
+.base {
+    background-color: rgb(5, 18, 42);
+    border-color: rgb(5, 19, 50);
+    border-radius: 1em;
+    border-width: 0.175em;
+    border-style: solid;
+    padding: 2em;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: 1.25% 0% 1.25% 1.25%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(6, 5, 34);
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    gap: 1.25%;
+}
