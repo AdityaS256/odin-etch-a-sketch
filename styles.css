@@ -4,19 +4,21 @@
     border-radius: 1em;
     border-width: 0.175em;
     border-style: solid;
-    padding: 2em;
+    padding: 0.5em;
+    box-sizing: border-box;
 }
 
 .controls {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     flex-grow: 1;
     margin: 1.25% 0% 1.25% 1.25%;
 }
 
 .canvas {
-    flex-grow: 3;
+    flex-grow: 6;
     margin: 1.25% 1.25% 1.25% 0%;
 }
 
