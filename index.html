@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./styles.css">
     <script defer src="./script.js"></script>
 </head>
@@ -15,9 +16,21 @@
     <div class="base controls">
         <h1>Etch-a-Sketch</h1>
         <div class="buttons">
-            
+            <input type="color" value="#202020" id="color">
+            <button id="eraser" onclick="eraser()">
+                <span class="material-symbols-rounded">ink_eraser</span>
+                Eraser
+            </button>
+            <button id="grid" onclick="grid()">
+                <span class="material-symbols-rounded" id="toggle">grid_off</span>
+                Grid
+            </button>
+            <button id="clear">
+                <span class="material-symbols-rounded">delete</span>
+                Clear
+            </button>
         </div>
-        <p>Copyright © 2023 <a href="https://github.com/AdityaS256">Aditya Sharma</a></p>
+        <p>Copyright © 2023 <a href="https://github.com/AdityaS256" target="_blank">Aditya Sharma</a></p>
     </div>
     <div class="base board">
         <div class="canvas"></div>

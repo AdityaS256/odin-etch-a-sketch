@@ -17,6 +17,97 @@
     margin: 1.25% 0% 1.25% 1.25%;
 }
 
+.controls > h1 {
+    font-family: 'Space Mono';
+    font-weight: 200;
+    font-size: 1.75em;
+    color: rgb(16, 185, 129);
+}
+
+.controls > p {
+    font-size: 0.85em;
+}
+
+.controls > p > a {
+    color: white;
+    transition: 225ms ease-in-out;
+}
+
+.controls > p > a:hover {
+    color: rgb(129, 140, 248);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.buttons > * {
+    width: 200%;
+    border-radius: 100em;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    gap: 1em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    font-size: 1em;
+    transition: 225ms ease-in-out;
+    cursor: pointer;
+}
+
+#grid {
+    background-color: rgba(129, 140, 248, 0.25);
+    color: rgb(129, 140, 248);
+}
+
+#grid:hover{
+    background-color: rgba(129, 140, 248, 0.5);
+}
+
+#clear {
+    background-color: rgba(244, 63, 94, 0.25);
+    color: rgb(244, 63, 94);
+}
+
+#clear:hover{
+    background-color: rgba(244, 63, 94, 0.5);
+}
+
+#eraser {
+    background-color: rgba(217, 119, 6, 0.25);
+    color: rgb(217, 119, 6);
+}
+
+#eraser:hover{
+    background-color: rgba(217, 119, 6, 0.5);
+}
+
+input[type="color"] {
+    appearance: none;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+#color {
+    border: 0.15em;
+    border-color: rgba(129, 140, 248, 0.5);
+    border-style: solid;
+    background-color: #202020;
+    transition: none;
+    height: 2em;
+}
+
 .board {
     display: flex;
     justify-content: center;
@@ -37,8 +128,9 @@
     aspect-ratio: 1 / 1;
     border-color: rgba(0, 0, 0, 0.075);
     border-width: 0.5px;
-    border-style: solid;
+    border-style: none;
     background-color: white;
+    transition: 225ms ease-out;
 }
 
 html, body {
