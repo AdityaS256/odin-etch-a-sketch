@@ -1,31 +1,51 @@
-let size = prompt("Size eg.(16 = 16x16 grid)");
+let sizeBox = document.querySelector('#size');
+
+sizeBox.value = 4;
 
 let canvas = document.querySelector(".canvas");
 
-let attribute = `repeat(${size}, 1fr)`;
+let gridStatus;
 
-canvas.style.gridTemplateColumns = attribute;
+function render (size) {
+  canvas.innerHTML = "";
 
-const availableVerticalSpace = window.innerHeight;
-const availableHorizontalSpace = window.innerWidth;
+  if (size > 64) {
+    size = 64;
+    alert("Size cannot be higher than 64! Grid size set to 64");
+    sizeBox.value = 64;
+  }
+  
+  let attribute = `repeat(${size}, 1fr)`;
+  
+  canvas.style.gridTemplateColumns = attribute;
+  
+  const availableVerticalSpace = window.innerHeight;
+  const availableHorizontalSpace = window.innerWidth;
+  
+  if (availableVerticalSpace < availableHorizontalSpace) {
+    canvas.style.height = "100%";
+    canvas.style.width = "auto";
+  } else {
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
+  }
+  
+  size = size * size;
+  
+  for (let i = 1; i <= size; i++) {
+    let pixel = document.createElement("div");
+  
+    pixel.classList.add("pixel");
+  
+    canvas.appendChild(pixel);
+  }
 
-// Compare the available spaces and set the appropriate CSS property
-if (availableVerticalSpace < availableHorizontalSpace) {
-  canvas.style.height = "100%";
-  canvas.style.width = "auto";
-} else {
-  canvas.style.width = "100%";
-  canvas.style.height = "auto";
-}
+  draw();
 
-size = size * size;
-
-for (let i = 1; i <= size; i++) {
-  let pixel = document.createElement("div");
-
-  pixel.classList.add("pixel");
-
-  canvas.appendChild(pixel);
+  grid();
+  if (gridStatus === false) {
+    grid();
+  }
 }
 
 let eraseMode = false;
@@ -40,12 +60,14 @@ function grid() {
       pixel.style.borderStyle = "none";
     });
 
+    gridStatus = false;
     toggle.textContent = "grid_off";
   } else {
     pixels.forEach(function (pixel) {
       pixel.style.borderStyle = "solid";
     });
 
+    gridStatus = true;
     toggle.textContent = "grid_on";
   }
 }
@@ -67,11 +89,11 @@ function draw () {
 
   let isDrawing;
 
-  canvas.addEventListener('mousedown', function () {
+  window.addEventListener('mousedown', function () {
     isDrawing = true;
   });
 
-  canvas.addEventListener('mouseup', function () {
+  window.addEventListener('mouseup', function () {
     isDrawing = false;
   });
 
@@ -92,8 +114,6 @@ function draw () {
 function paint (pixel, color) {
   pixel.style.backgroundColor = color;
 }
-
-draw();
 
 function eraser () {
   let eraseButton = document.querySelector('#eraser');
@@ -132,3 +152,6 @@ let colorPicker = document.querySelector('#color');
 colorPicker.addEventListener('input', function (event) {
   event.target.style.backgroundColor = event.target.value;
 });
+
+render(4);
+draw();
