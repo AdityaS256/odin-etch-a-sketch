@@ -109,6 +109,17 @@ function draw () {
       }
     });
   });
+
+  Array.from(pixels).forEach(function (pixel) {
+    pixel.addEventListener('click', function (event) {
+      if (eraseMode) {
+        paint(event.target, "white");
+      } else {
+        let color = document.querySelector('#color').value;
+        paint(event.target, color);
+      }
+    });
+  });
 }
 
 function paint (pixel, color) {
