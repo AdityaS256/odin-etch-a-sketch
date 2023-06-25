@@ -35,7 +35,7 @@
             </button>
             <div>
                 <label for="size" class="size imp">Grid Size</label>
-                <input type="number" min="1" max="64" id="size" onchange="render(this.value)">
+                <input type="number" min="1" max="64" id="size" onclick="document.querySelector(`#${this.id}`).focus()" onchange="render(this.value)">
             </div>
         </div>
         <p>Copyright © 2023 <a href="https://github.com/AdityaS256" target="_blank">Aditya Sharma</a></p>
