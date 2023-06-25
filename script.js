@@ -89,7 +89,8 @@ function draw () {
 
   let isDrawing;
 
-  window.addEventListener('mousedown', function () {
+  window.addEventListener('mousedown', function (event) {
+    event.preventDefault();
     isDrawing = true;
   });
 
@@ -126,23 +127,12 @@ function paint (pixel, color) {
   pixel.style.backgroundColor = color;
 }
 
-function eraser () {
+function eraser (id) {
   let eraseButton = document.querySelector('#eraser');
 
-  if (eraseMode === false) {
-    eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.25)";
-    eraseButton.style.color = "rgba(16, 185, 129)";
+  isDrawing = false;
 
-    eraseButton.addEventListener('mouseover', function () {
-      eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.5)";
-    });
-
-    eraseButton.addEventListener('mouseout', function () {
-      eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.25)";
-    });
-
-    eraseMode = true;
-  } else {
+  if (eraseMode === true || id === "color") {
     eraseButton.style.backgroundColor = "rgba(217, 119, 6, 0.25)";
     
     eraseButton.addEventListener('mouseover', function () {
@@ -155,6 +145,19 @@ function eraser () {
 
     eraseButton.style.color = "rgba(217, 119, 6)";
     eraseMode = false;
+  } else if (eraseMode === false) {
+    eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.25)";
+    eraseButton.style.color = "rgba(16, 185, 129)";
+
+    eraseButton.addEventListener('mouseover', function () {
+      eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.5)";
+    });
+
+    eraseButton.addEventListener('mouseout', function () {
+      eraseButton.style.backgroundColor = "rgba(16, 185, 129, 0.25)";
+    });
+
+    eraseMode = true;
   }
 }
 
@@ -165,4 +168,3 @@ colorPicker.addEventListener('input', function (event) {
 });
 
 render(4);
-draw();
