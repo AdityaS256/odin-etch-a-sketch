@@ -9,6 +9,8 @@ let gridStatus;
 function render (size) {
   canvas.innerHTML = "";
 
+  size = Math.floor(size);
+
   if (size > 64) {
     size = 64;
     alert("Size cannot be higher than 64! Grid size set to 64");
