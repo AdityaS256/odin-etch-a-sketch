@@ -11,7 +11,12 @@ function render (size) {
 
   size = Math.floor(size);
 
-  if (size > 64) {
+  if (size < 0) {
+    size = 4;
+    alert("Size cannot be lesser than 1! Grid size set to 4");
+    sizeBox.value = 4;
+  }
+  else if (size > 64) {
     size = 64;
     alert("Size cannot be higher than 64! Grid size set to 64");
     sizeBox.value = 64;
